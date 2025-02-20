@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx run main-app:serve --host 0.0.0.0 --disable-host-check",
+    "startTime": "2025-01-31T15:14:50.745Z",
+    "endTime": "2025-01-31T15:14:56.295Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "main-app:serve:development",
+      "target": "serve",
+      "projectName": "main-app",
+      "hash": "14103360718247388604",
+      "startTime": "2025-01-31T15:14:50.824Z",
+      "endTime": "2025-01-31T15:14:56.294Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

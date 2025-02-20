@@ -1,0 +1,50 @@
+<!-- line-ad.component.html -->
+<div (click)="onViewAd()" 
+     class="group bg-white/90 backdrop-blur-sm border border-purple-100 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden">
+  <div class="p-6">
+    <!-- Category Badge -->
+    <div class="mb-3">
+      <span class="inline-block px-3 py-1 text-sm font-medium text-pink-600 bg-pink-50 rounded-full">
+        {{ ad.category }}
+      </span>
+    </div>
+
+    <!-- Title Section -->
+    <h2 class="text-xl font-bold text-gray-800 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-600 group-hover:to-purple-600 transition-all duration-300 mb-3">
+      {{ ad.title }}
+    </h2>
+
+    <!-- Description Preview -->
+    <p class="text-gray-600 text-sm line-clamp-2 mb-4">
+      {{ ad.description }}
+    </p>
+
+    <!-- Tags and Metadata -->
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
+        <ng-container *ngFor="let tag of ad.location.split(',').slice(0, 2)">
+          <span class="px-2 py-1 text-xs bg-purple-50 text-purple-600 rounded-full">
+            {{ tag.trim() }}
+          </span>
+        </ng-container>
+        <span *ngIf="ad.location.split(',').length > 2" 
+              class="px-2 py-1 text-xs bg-purple-50 text-purple-600 rounded-full">
+          +{{ ad.location.split(',').length - 2 }}
+        </span>
+      </div>
+
+      <!-- Date -->
+      <div class="flex items-center text-xs text-gray-500">
+        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        {{ ad.created_at | date: 'MMM d, y' }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Hover Effect Line -->
+  <div class="h-1 w-full bg-gradient-to-r from-pink-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+</div>

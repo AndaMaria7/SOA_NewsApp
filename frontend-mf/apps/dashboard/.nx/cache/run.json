@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx run dashboard:serve --host 0.0.0.0 --disable-host-check",
+    "startTime": "2025-01-31T15:14:51.062Z",
+    "endTime": "2025-01-31T15:14:55.111Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "dashboard:serve:development",
+      "target": "serve",
+      "projectName": "dashboard",
+      "hash": "9296408133650772532",
+      "startTime": "2025-01-31T15:14:51.116Z",
+      "endTime": "2025-01-31T15:14:55.107Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

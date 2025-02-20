@@ -1,0 +1,40 @@
+<!-- app.component.html -->
+<ng-container>
+  <ng-mf-top-bar 
+    *ngIf="(isLoggedIn$ | async) && !isLoginRoute()" 
+    [userConnected]="userConnected">
+  </ng-mf-top-bar>
+</ng-container>
+
+<div [class]="isLoginRoute() ? '' : 'px-[150px] py-[40px]'">
+  <div *ngIf="isLoggedIn$ | async; else signIn" class="sub-logged-div-content">
+    <!-- Welcome Header with User Info -->
+    <div class="flex items-center gap-3 mb-6">
+      <!-- User Avatar -->
+      <div class="w-10 h-10 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 flex items-center justify-center text-white font-bold">
+        {{ userConnected.email.charAt(0).toUpperCase() }}
+      </div>
+      
+      <!-- Welcome Text -->
+      <div>
+        <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">
+          Welcome back!
+        </h2>
+        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+          <!-- Email Icon -->
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span>{{ userConnected.email }}</span>
+        </div>
+      </div>
+    </div>
+
+    <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+  </div>
+  
+  <ng-template #signIn>
+    <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+  </ng-template>
+</div>

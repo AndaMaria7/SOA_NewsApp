@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx run login:serve --host 0.0.0.0 --disable-host-check",
+    "startTime": "2025-01-31T15:14:50.737Z",
+    "endTime": "2025-01-31T15:14:55.025Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "login:serve:development",
+      "target": "serve",
+      "projectName": "login",
+      "hash": "9429172352178597900",
+      "startTime": "2025-01-31T15:14:50.807Z",
+      "endTime": "2025-01-31T15:14:55.023Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

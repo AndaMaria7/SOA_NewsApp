@@ -1,0 +1,97 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.3.0",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "login": [
+        {
+          "file": "Dockerfile",
+          "hash": "9137923900151108993"
+        },
+        {
+          "file": "eslint.config.cjs",
+          "hash": "12576306780162144496"
+        },
+        {
+          "file": "module-federation.config.ts",
+          "hash": "7956214784801599870"
+        },
+        {
+          "file": "project.json",
+          "hash": "1267826499703454478"
+        },
+        {
+          "file": "public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "src/app/app.config.ts",
+          "hash": "1640629652525280486"
+        },
+        {
+          "file": "src/app/app.routes.ts",
+          "hash": "12432514961207439410"
+        },
+        {
+          "file": "src/app/remote-entry/entry.component.css",
+          "hash": "6581808751423151035"
+        },
+        {
+          "file": "src/app/remote-entry/entry.component.html",
+          "hash": "10421538183059976562"
+        },
+        {
+          "file": "src/app/remote-entry/entry.component.ts",
+          "hash": "16791403340618140868"
+        },
+        {
+          "file": "src/app/remote-entry/entry.routes.ts",
+          "hash": "16648512203766247458"
+        },
+        {
+          "file": "src/app/remote-entry/nx-welcome.component.ts",
+          "hash": "1496559933196018934"
+        },
+        {
+          "file": "src/bootstrap.ts",
+          "hash": "12142800989361461718"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "17540333889849904040"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "14701344671644104227"
+        },
+        {
+          "file": "src/styles.scss",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "7822144734277415584"
+        },
+        {
+          "file": "tsconfig.editor.json",
+          "hash": "1055794200401717100"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "5217261004462033807"
+        },
+        {
+          "file": "webpack.config.ts",
+          "hash": "383329064200880040"
+        },
+        {
+          "file": "webpack.prod.config.ts",
+          "hash": "292733372942319833"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

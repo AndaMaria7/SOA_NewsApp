@@ -1,0 +1,75 @@
+<div class="chat-container bg-white/90 backdrop-blur-sm border border-purple-100 rounded-xl shadow-lg p-6">
+  <!-- Chat Header -->
+  <div class="flex items-center justify-between pb-4 mb-4 border-b border-purple-100">
+    <div class="flex items-center gap-3">
+      <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">
+        Discussion
+      </h3>
+      <span class="px-2 py-1 text-xs bg-purple-50 text-purple-600 rounded-full">
+        {{ messages.length }} messages
+      </span>
+    </div>
+  </div>
+
+  <!-- Chat Messages Section -->
+  <div class="chat-messages space-y-3 overflow-y-auto max-h-[400px] mb-4 scrollbar-thin scrollbar-thumb-purple-200 scrollbar-track-transparent pr-2">
+    <div *ngFor="let msg of messages" 
+         [ngClass]="{'justify-end': isMessageAuthor(msg)}"
+         class="flex">
+      <div [ngClass]="{'order-2': isMessageAuthor(msg)}"
+           class="max-w-[80%] space-y-1">
+        <!-- Message Header -->
+        <div [ngClass]="{'text-right': isMessageAuthor(msg)}"
+             class="flex items-center gap-2" 
+             [class.justify-end]="isMessageAuthor(msg)">
+          <!-- Author Avatar -->
+          <div [ngClass]="{'order-2': !isMessageAuthor(msg)}"
+               class="w-6 h-6 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+            {{ msg.userEmail.charAt(0).toUpperCase() }}
+          </div>
+          
+          <div class="text-sm text-gray-600">
+            <span class="font-medium">{{ msg.userEmail }}</span>
+            @if(isAdPoster(msg)) {
+              <span class="ml-1 px-1.5 py-0.5 text-xs bg-pink-50 text-pink-600 rounded-full">Author</span>
+            }
+          </div>
+        </div>
+
+        <!-- Message Bubble -->
+        <div [ngClass]="{'bg-gradient-to-r from-pink-600 to-purple-600 text-white': isMessageAuthor(msg), 
+                        'bg-gray-100 text-gray-800': !isMessageAuthor(msg)}"
+             class="p-3 rounded-2xl shadow-sm">
+          {{ msg.message }}
+        </div>
+
+        <!-- Timestamp -->
+        <div [ngClass]="{'text-right': isMessageAuthor(msg)}"
+             class="text-xs text-gray-500">
+          {{ msg.timestamp | date:'shortTime' }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Input Section -->
+  <div class="chat-input flex items-center gap-3 pt-3 border-t border-purple-100">
+    <input 
+      type="text" 
+      [(ngModel)]="newMessage" 
+      placeholder="Type your message here..." 
+      (keyup.enter)="sendMessage()"
+      class="flex-1 px-4 py-3 bg-white rounded-lg border border-gray-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none text-gray-800"
+    />
+    <button 
+      (click)="sendMessage()"
+      class="flex items-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-pink-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition-all duration-200"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+      </svg>
+      Send
+    </button>
+  </div>
+</div>

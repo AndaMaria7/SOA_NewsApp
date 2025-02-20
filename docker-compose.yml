@@ -1,0 +1,149 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: nestjs-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongodb:27017/your-database
+    depends_on:
+      - mongodb
+      - kafka
+      - zookeeper
+    networks:
+      - app-network
+    develop:
+      watch:
+      - action: sync
+        path: .
+        target: ./backend
+
+  main-app:
+    build:
+      context: ./frontend-mf
+      dockerfile: apps/main-app/Dockerfile
+    container_name: angular-main-app
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+      - login
+      - dashboard
+    restart: always
+    networks:
+      - app-network
+    develop:
+      watch:
+      - action: sync
+        path: .
+        target: ./frontend-mf
+
+  login:
+    build:
+      context: ./frontend-mf
+      dockerfile: apps/login/Dockerfile
+    container_name: angular-login
+    ports:
+      - "4201:4201"
+    restart: always
+    networks:
+      - app-network
+    develop:
+      watch:
+      - action: sync
+        path: .
+        target: ./frontend-mf
+
+  dashboard:
+    build:
+      context: ./frontend-mf
+      dockerfile: apps/dashboard/Dockerfile
+    container_name: angular-dashboard
+    ports:
+      - "4202:4202"
+    # restart: always
+    networks:
+      - app-network
+    develop:
+      watch:
+      - action: sync
+        path: .
+        target: ./frontend-mf
+
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: nginx
+  #   build:
+  #     context: .
+  #     dockerfile: docker/nginx.conf
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - login
+  #     - dashboard
+  #   networks:
+  #     - app-network
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: your-database
+    networks:
+      - app-network
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672" # Port pour les messages
+      - "15672:15672" # Port pour le dashboard de RabbitMQ
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+    networks:
+      - app-network
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    ports:
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9093
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+    networks:
+      - app-network
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge

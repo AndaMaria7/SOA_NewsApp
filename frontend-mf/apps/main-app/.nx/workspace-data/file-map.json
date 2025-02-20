@@ -1,0 +1,161 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.4.0",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "main-app": [
+        {
+          "file": "Dockerfile",
+          "hash": "17880964412472734978"
+        },
+        {
+          "file": "eslint.config.cjs",
+          "hash": "12576306780162144496"
+        },
+        {
+          "file": "module-federation.config.ts",
+          "hash": "4635371083387864894"
+        },
+        {
+          "file": "project.json",
+          "hash": "1400269541941151729"
+        },
+        {
+          "file": "public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "public/module-federation.manifest.json",
+          "hash": "4285863474279330548"
+        },
+        {
+          "file": "src/app/add-ad/add-ad.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/add-ad/add-ad.component.html",
+          "hash": "1738501573016378356"
+        },
+        {
+          "file": "src/app/add-ad/add-ad.component.spec.ts",
+          "hash": "17069293024223607095"
+        },
+        {
+          "file": "src/app/add-ad/add-ad.component.ts",
+          "hash": "5748580443679105259"
+        },
+        {
+          "file": "src/app/app.component.html",
+          "hash": "13232395369690340829"
+        },
+        {
+          "file": "src/app/app.component.scss",
+          "hash": "3722290915357760830"
+        },
+        {
+          "file": "src/app/app.component.spec.ts",
+          "hash": "510097236850331835"
+        },
+        {
+          "file": "src/app/app.component.ts",
+          "hash": "9911488732549440743"
+        },
+        {
+          "file": "src/app/app.config.ts",
+          "hash": "3127283071420609023"
+        },
+        {
+          "file": "src/app/app.routes.ts",
+          "hash": "12589626623820097679"
+        },
+        {
+          "file": "src/app/home/home.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/home/home.component.html",
+          "hash": "8980251380215388944"
+        },
+        {
+          "file": "src/app/home/home.component.spec.ts",
+          "hash": "9562499380277618699"
+        },
+        {
+          "file": "src/app/home/home.component.ts",
+          "hash": "3741051973526675174"
+        },
+        {
+          "file": "src/app/list-ad/list-ad.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/list-ad/list-ad.component.html",
+          "hash": "10146300828877141364"
+        },
+        {
+          "file": "src/app/list-ad/list-ad.component.spec.ts",
+          "hash": "11600051555547572901"
+        },
+        {
+          "file": "src/app/list-ad/list-ad.component.ts",
+          "hash": "17481315779189845420"
+        },
+        {
+          "file": "src/app/model/ad.model.ts",
+          "hash": "2650054493396547081"
+        },
+        {
+          "file": "src/app/nx-welcome.component.ts",
+          "hash": "11191052634454048252"
+        },
+        {
+          "file": "src/app/services/ad.service.spec.ts",
+          "hash": "14932341785156332333"
+        },
+        {
+          "file": "src/app/services/ad.service.ts",
+          "hash": "6816630707272075514"
+        },
+        {
+          "file": "src/bootstrap.ts",
+          "hash": "16635586463787978962"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "1387435512255282928"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "16463217434443169188"
+        },
+        {
+          "file": "src/styles.scss",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "5386264761485847892"
+        },
+        {
+          "file": "tsconfig.editor.json",
+          "hash": "1055794200401717100"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "5217261004462033807"
+        },
+        {
+          "file": "webpack.config.ts",
+          "hash": "383329064200880040"
+        },
+        {
+          "file": "webpack.prod.config.ts",
+          "hash": "292733372942319833"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

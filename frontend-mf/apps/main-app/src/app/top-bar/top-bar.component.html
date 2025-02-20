@@ -1,0 +1,41 @@
+<div class="topbar flex justify-between items-center bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 p-4 text-white relative shadow-lg">
+    <!-- Logo Section with just the image -->
+    <div class="flex items-center">
+        <img src="assets/gradient-breaking-news-logo-design.png" alt="Logo" class="h-12 w-auto" />
+    </div>
+
+    @if ( isUserConnected() ) {
+    <div class="flex space-x-4 relative">
+        <!-- Notification Button -->
+        <button class="relative p-2 hover:bg-white/10 rounded-lg transition-colors duration-200" 
+                (click)="toggleNotifications()">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" 
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" 
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14V11a6 6 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7 7 6 8 6 11v3c0 .386-.146.735-.405 1.005L4 17h5m6 0a3 3 0 01-6 0">
+                </path>
+            </svg>
+            
+            @if ( notifications.length > 0 ) {
+            <span class="absolute -top-1 -right-1 bg-pink-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
+                {{ notifications.length }}
+            </span>
+            }
+        </button>
+
+        <!-- Notifications dropdown -->
+        <div [ngClass]="{'block': showNotifications, 'hidden': !showNotifications}"
+             class="absolute right-0 mt-12 w-64 bg-white/95 backdrop-blur-sm text-gray-800 shadow-xl rounded-lg p-2 border border-purple-200">
+            <app-notifications></app-notifications>
+        </div>
+
+        <!-- Logout Button -->
+        <div>
+            <button (click)="logout()" 
+                    class="bg-white/10 hover:bg-white/20 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 border border-white/20 hover:border-white/30">
+                Logout
+            </button>
+        </div>
+    </div>
+    }
+</div>
